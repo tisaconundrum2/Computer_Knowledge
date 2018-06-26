@@ -12,7 +12,7 @@ So to get back into your GUI window manager: type: \
 
 ## Logging out a user 
 
-pkill -KILL -u vivek
+`pkill -KILL -u vivek`
 
 ## Shutdown Linux
 
