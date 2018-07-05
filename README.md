@@ -25,3 +25,8 @@ So to get back into your GUI window manager: type: \
 `udisksctl unlock -b /dev/sdb5`\
 `sudo mkdir /mnt/data`\
 `sudo mount /dev/dm-1 /mnt/data`
+
+## Unclean file system
+
+`sudo ntfsfix /dev/sdXY`\
+`sudo mount -o rw /dev/sdXY`
