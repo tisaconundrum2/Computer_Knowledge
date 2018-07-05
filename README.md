@@ -20,3 +20,8 @@ So to get back into your GUI window manager: type: \
 `shutdown` \
 `halt`
 
+## Unlock encrypted drive
+
+`udisksctl unlock -b /dev/sdb5`\
+`sudo mkdir /mnt/data`\
+`mount /dev/dm-1 /mnt/data`
