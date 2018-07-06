@@ -30,3 +30,8 @@ So to get back into your GUI window manager: type: \
 
 `sudo ntfsfix /dev/sdXY`\
 `sudo mount -o rw /dev/sdXY`
+
+## Copy files with progress bar
+
+`rsync -ah --progress <source> <destination>`
+`rsync -rah --progress <source> <destination>  # recursive`
