@@ -26,13 +26,16 @@ So to get back into your GUI window manager: type: \
     sudo mkdir /mnt/data
     sudo mount /dev/dm-1 /mnt/data
     
-If you run into `mount: unknown filesystem type 'LVM2_member'` try the commands below
+If you run into `mount: unknown filesystem type 'LVM2_member'` try the commands below \
+odds are, this is caused by the main OS's drive being similarly named.
 
+    sudo bash
+    vgdisplay
+    vgrename <VG UUID> new_name
     modprobe dm-mod
     vgchange -ay
-    sudo vgchange -ay
-    sudo lvscan
-    sudo mount /dev/crypt/root /mnt/data/
+    lvscan
+    mount /dev/crypt/root /mnt/data/
 
 
 ## Unclean file system
