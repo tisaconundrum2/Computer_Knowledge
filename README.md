@@ -26,6 +26,8 @@ So to get back into your GUI window manager: type: \
 `sudo mkdir /mnt/data`\
 `sudo mount /dev/dm-1 /mnt/data`
 
+`sudo cryptsetup luksOpen /dev/sda1 my_encrypted_volume`
+
 ## Unclean file system
 
 `sudo ntfsfix /dev/sdXY`\
@@ -33,5 +35,5 @@ So to get back into your GUI window manager: type: \
 
 ## Copy files with progress bar
 
-`rsync -ah --progress <source> <destination>`
+`rsync -ah --progress <source> <destination>`\
 `rsync -rah --progress <source> <destination>  # recursive`
