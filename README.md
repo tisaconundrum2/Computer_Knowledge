@@ -47,3 +47,9 @@ odds are, this is caused by the main OS's drive being similarly named.
 
 `rsync -ah --progress <source> <destination>`\
 `rsync -rah --progress <source> <destination>  # recursive`
+
+## Timeshift
+
+    sudo apt-add-repository -y ppa:teejee2008/ppa
+    sudo apt-get update
+    sudo apt-get install timeshift
