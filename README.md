@@ -35,7 +35,7 @@ odds are, this is caused by the main OS's drive being similarly named.
     modprobe dm-mod
     vgchange -ay
     lvscan
-    mount /dev/crypt/root /mnt/data/
+    mount /dev/new_name/root /mnt/data/
 
 
 ## Unclean file system
