@@ -22,11 +22,18 @@ So to get back into your GUI window manager: type: \
 
 ## Unlock encrypted drive
 
-`udisksctl unlock -b /dev/sdb5`\
-`sudo mkdir /mnt/data`\
-`sudo mount /dev/dm-1 /mnt/data`
+    udisksctl unlock -b /dev/sdb5
+    sudo mkdir /mnt/data
+    sudo mount /dev/dm-1 /mnt/data
+    
+If you run into `mount: unknown filesystem type 'LVM2_member'` try the commands below
 
-`sudo cryptsetup luksOpen /dev/sda1 my_encrypted_volume`
+    modprobe dm-mod
+    vgchange -ay
+    sudo vgchange -ay
+    sudo lvscan
+    sudo mount /dev/crypt/root /mnt/data/
+
 
 ## Unclean file system
 
