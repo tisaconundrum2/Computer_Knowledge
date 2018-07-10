@@ -48,6 +48,24 @@ odds are, this is caused by the main OS's drive being similarly named.
 `rsync -ah --progress <source> <destination>`\
 `rsync -rah --progress <source> <destination>  # recursive`
 
+## Copy files
+
+the `.` is a special character that tells cp to copy inside the folder
+
+`cp -nafRv dest0/. dest1/`
+
+```
+  -a, --archive                same as -dR --preserve=all
+  -f, --force                  if an existing destination file cannot be
+                                 opened, remove it and try again (this option
+                                 is ignored when the -n option is also used)
+  -n, --no-clobber             do not overwrite an existing file (overrides
+                                 a previous -i option)
+  -R, -r, --recursive          copy directories recursively
+  -v, --verbose                explain what is being done
+```
+
+
 ## Timeshift
 
     sudo apt-add-repository -y ppa:teejee2008/ppa
