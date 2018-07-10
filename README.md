@@ -52,7 +52,7 @@ odds are, this is caused by the main OS's drive being similarly named.
 
 the `.` is a special character that tells cp to copy inside the folder
 
-`cp -nafRv dest0/. dest1/`
+`cp -afnRv dest0/. dest1/`
 
 ```
   -a, --archive                same as -dR --preserve=all
