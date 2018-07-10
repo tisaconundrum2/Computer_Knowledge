@@ -48,17 +48,20 @@ odds are, this is caused by the main OS's drive being similarly named.
 `rsync -ah --progress <source> <destination>`\
 `rsync -rah --progress <source> <destination>  # recursive`
 
+``` 
+ -r, --recursive             recurse into directories
+ -a, --archive               archive mode; equals -rlptgoD (no -H,-A,-X)
+ -h, --human-readable        output numbers in a human-readable format
+```
+
 ## Copy files
 
 the `.` is a special character that tells cp to copy inside the folder
 
-`cp -afnRv dest0/. dest1/`
+`cp -anrv dest0/. dest1/`
 
 ```
   -a, --archive                same as -dR --preserve=all
-  -f, --force                  if an existing destination file cannot be
-                                 opened, remove it and try again (this option
-                                 is ignored when the -n option is also used)
   -n, --no-clobber             do not overwrite an existing file (overrides
                                  a previous -i option)
   -R, -r, --recursive          copy directories recursively
