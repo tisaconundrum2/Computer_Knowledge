@@ -65,6 +65,15 @@ the `.` is a special character that tells cp to copy inside the folder
   -v, --verbose                explain what is being done
 ```
 
+## Moves files
+
+`mv -fnv dest0/ dest1/`
+
+```
+  -f, --force                  do not prompt before overwriting
+  -n, --no-clobber             do not overwrite an existing file
+  -v, --verbose                explain what is being done
+```
 
 ## Timeshift
 
