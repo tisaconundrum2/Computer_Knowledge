@@ -110,9 +110,11 @@ Okay now you have a partition, now you need a filesystem.
 The GUI solution for me is **gnome-disks**
 
     sudo gnome-disks
+    
 ![gnome-disks][1]
 
 Then with the configuration button you can "edit mount options", feel free to give the destination of your mount point and it will be saved into the /etc/fstab automatically
+
 ![enter image description here][2]
 
 
