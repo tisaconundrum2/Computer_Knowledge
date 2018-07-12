@@ -83,3 +83,38 @@ the `.` is a special character that tells cp to copy inside the folder
     sudo apt-add-repository -y ppa:teejee2008/ppa
     sudo apt-get update
     sudo apt-get install timeshift
+
+First of all your `/dev/sdb` isn't partitioned. I am assuming this is the disk you want to mount.
+
+## Automounting your drive 
+
+Run `sudo fdisk /dev/sdb` # Note this will erase your data. Be sure that you want to do this.
+
+1. Press <kbd>O</kbd> and press <kbd>Enter</kbd> *(creates a new table)*
+
+2. Press <kbd>N</kbd> and press <kbd>Enter</kbd> *(creates a new partition)*
+
+3. Press <kbd>P</kbd> and press <kbd>Enter</kbd> *(makes a primary partition)*
+
+4. Then press <kbd>1</kbd> and press <kbd>Enter</kbd> *(creates it as the 1st partition)*
+
+5. Finally, press <kbd>W</kbd> *(this will write any changes to disk)*
+
+
+Okay now you have a partition, now you need a filesystem.
+
+6. Run `sudo mkfs.ext4 /dev/sdb1`
+
+7. Now you can add it to fstab # Using the GUI instead, this is safer. bad alters to `fstab` could result in destroyed system
+
+The GUI solution for me is **gnome-disks**
+
+    sudo gnome-disks
+![gnome-disks][1]
+
+Then with the configuration button you can "edit mount options", feel free to give the destination of your mount point and it will be saved into the /etc/fstab automatically
+![enter image description here][2]
+
+
+  [1]: http://i.stack.imgur.com/WZeoX.png
+  [2]: http://i.stack.imgur.com/h529h.png
