@@ -2,7 +2,7 @@
 ```
 if [[ $answer = [yY] ]]; then
     cp /etc/sudoers.bak /etc/sudoers
-elif [[ $answer = [nN] ]]
+elif [[ $answer = [nN] ]]; then
     echo 'Not commiting changes. Now exiting'
     sleep 5
 fi
