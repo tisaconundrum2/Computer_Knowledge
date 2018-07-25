@@ -120,3 +120,9 @@ Then with the configuration button you can "edit mount options", feel free to gi
 
   [1]: http://i.stack.imgur.com/WZeoX.png
   [2]: http://i.stack.imgur.com/h529h.png
+
+# Removing/Uninstalling a Package
+
+    sudo apt-get remove npm
+    sudo apt-get purge npm
+    sudo apt-get autoremove 
