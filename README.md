@@ -123,6 +123,6 @@ Then with the configuration button you can "edit mount options", feel free to gi
 
 # Removing/Uninstalling a Package
 
-    sudo apt-get remove npm
-    sudo apt-get purge npm
+    sudo apt-get remove <package>
+    sudo apt-get purge <package>
     sudo apt-get autoremove 
