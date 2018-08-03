@@ -129,6 +129,8 @@ Then with the configuration button you can "edit mount options", feel free to gi
 
 # How to change login background
 
+![image](https://user-images.githubusercontent.com/11879769/43656291-bd8bbf10-9706-11e8-9655-df827d48de0a.png)
+
     sudo cp PATH/TO/YOUR/IMAGE /usr/share/backgrounds/
     sudo gedit /etc/alternatives/gdm3.css
 
