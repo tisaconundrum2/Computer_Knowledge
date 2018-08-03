@@ -126,3 +126,22 @@ Then with the configuration button you can "edit mount options", feel free to gi
     sudo apt-get remove <package>
     sudo apt-get purge <package>
     sudo apt-get autoremove 
+
+# How to change login background
+
+    sudo cp PATH/TO/YOUR/IMAGE /usr/share/backgrounds/
+    sudo gedit /etc/alternatives/gdm3.css
+
+change
+
+    #lockDialogGroup {
+      background: #2c001e url(resource:///org/gnome/shell/theme/noise-texture.png);
+      background-repeat: repeat; }
+
+to
+
+    #lockDialogGroup {
+      background: #2c001e url(file:///usr/share/backgrounds/<yourpicture>.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center; }
