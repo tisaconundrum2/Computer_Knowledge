@@ -122,9 +122,9 @@ Then with the configuration button you can "edit mount options", feel free to gi
   [2]: http://i.stack.imgur.com/h529h.png
 
 # Removing/Uninstalling a Package
-
-    sudo apt-get remove <package>
-    sudo apt-get purge <package>
+    package=<package>
+    sudo apt-get remove $package
+    sudo apt-get purge $package
     sudo apt-get autoremove 
 
 # How to change login background
