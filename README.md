@@ -86,7 +86,7 @@ the `.` is a special character that tells cp to copy inside the folder
 
 First of all your `/dev/sdb` isn't partitioned. I am assuming this is the disk you want to mount.
 
-## Automounting your drive 
+## Formatting and Automounting your drive 
 
 Run `sudo fdisk /dev/sdb` # Note this will erase your data. Be sure that you want to do this.
 
