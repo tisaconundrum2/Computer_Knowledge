@@ -20,6 +20,12 @@ So to get back into your GUI window manager: type: \
 `shutdown` \
 `halt`
 
+## Add user to a sudo group
+`sudo usermod -aG sudo <user>`
+
+## Find who is part of the sudo group
+`getent group sudo`
+
 ## Unlock encrypted drive
 
     udisksctl unlock -b /dev/sdb5
