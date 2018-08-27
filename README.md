@@ -20,6 +20,10 @@ So to get back into your GUI window manager: type: \
 `shutdown` \
 `halt`
 
+## Checking if machine is on AD domain
+
+`sudo domainjoin-cli query`
+
 ## Add user to a sudo group
 `sudo usermod -aG sudo <user>`
 
