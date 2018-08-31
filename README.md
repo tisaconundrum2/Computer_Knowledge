@@ -136,6 +136,12 @@ Then with the configuration button you can "edit mount options", feel free to gi
     sudo apt-get remove $package
     sudo apt-get purge $package
     sudo apt-get autoremove 
+    dpkg -S /dir/to/original/file
+
+Use this dpkg removes the variable from the terminal so you don't see something like this\
+`$ java`
+`bash: /usr/bin/java: No such file or directory`
+
 
 # How to change login background
 
