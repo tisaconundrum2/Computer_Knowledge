@@ -4,6 +4,10 @@
 
 ![image](https://user-images.githubusercontent.com/11879769/45961499-7f53c080-bfd3-11e8-82dd-0c6f09dcf8a7.png)
 
+## Basic State of Local person for IssueTrak
+
+![image](https://user-images.githubusercontent.com/11879769/46113526-a6f98300-c1a3-11e8-92b9-bd921158b4bc.png)
+
 ## Adding a person 
 
     Domain Controller			started by script
