@@ -6,7 +6,9 @@
 
 ## Basic State of Local person for IssueTrak
 
-![image](https://user-images.githubusercontent.com/11879769/46113526-a6f98300-c1a3-11e8-92b9-bd921158b4bc.png)
+![image](https://user-images.githubusercontent.com/11879769/46113646-17a09f80-c1a4-11e8-92b9-c15de2649297.png)
+
+You need to email Mike Carillo to disable building badge before saying `yes` on the task
 
 ## Adding a person 
 
