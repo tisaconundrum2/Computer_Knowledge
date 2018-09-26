@@ -8,7 +8,13 @@
 
 ![image](https://user-images.githubusercontent.com/11879769/46113646-17a09f80-c1a4-11e8-92b9-c15de2649297.png)
 
-You need to email Mike Carillo to `Disable Building Badges and codes` before saying `yes` on the task
+You need to email Mike Carillo to `Disable Building Badges and codes` before saying `yes` on the task \
+n/a if they don't have devices on airwatch \
+n/a if they don't have devices on verizon wireless \
+n/a if they're not a part of Motus \
+Go to Cox website to remove them from phone line \
+Benson Cox login info in technician keepass \
+lookup user name
 
 ## Adding a person 
 
