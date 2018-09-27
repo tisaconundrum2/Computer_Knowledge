@@ -15,7 +15,28 @@ n/a if they're not a part of Motus \
 Go to Cox website to remove them from phone line
  - Benson Cox login info in technician keepass
  - lookup user name
+ 
+ ## Scripts and Parameters to run
+ 
+```
+insys-Term-LOA_v3 
+      -changeType <LOA | Term>
+      -Identity <user's name>
+      -subtype <Full | Keep Mail Active>
 
+
+new-InsysUser_v3
+      -AccType <Corp | Field | GMP | PSC | R&D | Texas>
+      -Alias <flastname> 
+      -Fname <firstname>
+      -Lname <lastname>
+      -company <INSYSRX | Temp/Contractor>
+      -department <Account Manager | Administration | Business Intelligence | Clinical Development | Compliance | Executive | Finance | Human Resources | Information Technology | Legal | Managed Markets | Manufacturing | Marketing | Medical Affairs | Patient Services Center | QA | QC | Quality Control | R&D | Regulatory | Sales | Training & Development>
+      -fdepartment <Account Manager | Sales>
+      -title "<Title of new employee>"
+      -manager "<full name>"
+      
+```
 ## Adding a person 
 
     Domain Controller			started by script
