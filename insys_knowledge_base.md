@@ -1,10 +1,10 @@
 # Insys Knowledge Base
 
-## Basic State of Salesperson for Issuetrak
+## Basic State of Termed Salesperson for Issuetrak
 
 ![image](https://user-images.githubusercontent.com/11879769/45961499-7f53c080-bfd3-11e8-82dd-0c6f09dcf8a7.png)
 
-## Basic State of Local person for IssueTrak
+## Basic State of Termed Local person for IssueTrak
 
 ![image](https://user-images.githubusercontent.com/11879769/46113646-17a09f80-c1a4-11e8-92b9-c15de2649297.png)
 
