@@ -53,3 +53,46 @@ Once the script is done, synchronize the emails through `admin.microsoft.com`
     AirWatch				added when we have users 
     Create Welcome Letter			This is in T:\Documentation\Docs\Employees\New Employee Docs\Welcome Letters
     Motus					We can start this once we have the employee ID from HR
+
+Hello Doug,
+
+This is what you'll meed to do to get these events erase from your device.\
+1) you'll need to remove restrictions\
+2) you'll need to turn off Contacts and then back on again.
+
+Let's start with removing restrictions.\
+If you have OS 11 do these instructions\
+	Click the home button\
+	Click on "Settings"\
+	Scroll down a little until you find General\
+	Click on General\
+	Scroll down a little until you find "Restrictions  On"\
+	If it says "Restrictions  Off" you can move to just move onto 2)\
+	The password is 1333\
+	Scroll down a little until you find "Accounts"\
+	Click on "Don't Allow Changes"\
+	Press the Home button
+
+
+If you have OS 12 do these instructions\
+	Click the home button\
+	Click on "Settings"\
+	Scroll down a little until you find "Screen Time"\
+	Click on "Screen Time"\
+	Scroll down a little until you find "Content & Privacy Restrictions"\
+	Click "Content & Privacy Restrictions"\
+	Scroll down a little until you find "Account Changes"\
+	Click on "Account Changes"\
+	Click on "Allow"\
+	Press the Home button
+
+Let's start with turning your Contacts on and then off again\
+	Double click your home button and swipe up on "Settings"\
+	This will clear out settings so you can start from the beginning\
+	Scroll down a little until you find "Accounts & Passwords"\
+	Click on "Accounts & Passwords"\
+	Click on "Exchange"\
+	Click on the slider button for Contacts" it should be in the off position (No green)\
+	Click on "Delete from My iPhone"\
+	Click on the slider button again, it should be in the on position (green)\
+	This will begin downloading all of the events you are interested in.
