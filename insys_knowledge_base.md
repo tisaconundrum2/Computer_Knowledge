@@ -38,7 +38,7 @@ new-InsysUser_v3
       
       
 $ insys-Term-LOA_v3 -changeType Term -Identity jlangseth -subtype Full 
-$ new-InsysUser_v3 -AccType Corp -Alias newUser -Fname New -Lname User -company INSYSRX -department Information Technology -title "Title in quotes if it has spaces" -manager jclarke  
+$ new-InsysUser_v3 -AccType Corp -Alias jdow -Fname John -Lname Doe -company INSYSRX -department Information Technology -title "IT Support Specialist" -manager jclarke
       
 ```
 ## Adding a person 
