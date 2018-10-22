@@ -57,6 +57,9 @@ Once the script is done, synchronize the emails through `admin.microsoft.com`
     AirWatch				added when we have users 
     Create Welcome Letter			This is in T:\Documentation\Docs\Employees\New Employee Docs\Welcome Letters
     Motus					We can start this once we have the employee ID from HR
+    
+
+## Sync is broke for Contacts/Mail/Calendars/Notes
 
 ```
 This is what you'll need to do to fix this.
