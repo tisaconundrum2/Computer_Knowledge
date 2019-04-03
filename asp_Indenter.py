@@ -34,43 +34,63 @@ import re, sys
 
 
 class Indenter:
-    def __init__(self):
-        self.before_indent = False
+    def __init__(self, string):
         self.space = 0
-        self.str_count = 0
-        self.total_string = ''
-        self.small_string = ''
+        self.count = 0
+        self.string = string
 
     def print_ln(self, string):
-        self.small_string = self.total_string[self.str_count]
-        if self.before_indent:
-            self.str_count -= 1
-            sys.stdout.write(" " * self.space + str(self.small_string))
-            self.str_count += 2
-        else:
-            self.str_count += 1
-            sys.stdout.write(" " * self.space + str(self.small_string))
+        sys.stdout.write(" " * self.space + str(string))
         sys.stdout.flush()
 
-    def main(self, string):
-        self.total_string = string
-        while self.str_count < len(self.total_string):
-            self.print_ln(self.small_string)
-            if re.search("^\s*if.*then", str(self.small_string), re.IGNORECASE):
-                self.space += 4
-            if re.search("^\s*for", str(self.small_string), re.IGNORECASE):
-                self.space += 4
-            if re.search("^\s*elseif.*then", str(self.small_string), re.IGNORECASE):
-                self.before_indent
-                self.space -= 4
-            if re.search("^\s*end if", str(self.small_string), re.IGNORECASE):
-                self.before_indent
-                self.space -= 4
-            if re.search("^\s*next", str(self.small_string), re.IGNORECASE):
-                self.before_indent
-                self.space -= 4
+    def after_string(self):
+        self.print_ln(self.string[self.count])
+        self.space += 4
+
+    def before_string(self):
+        self.space -= 4
+        self.print_ln(self.string[self.count])
+
+    def mid_string(self):
+        self.space -= 4
+        self.print_ln(self.string[self.count])
+        self.count += 1
+        self.space += 4
+        self.print_ln(self.string[self.count])
+
+
+
+    def main(self):
+        while self.count < len(self.string):
+            if re.search("^\s*if.*then", str(self.string[self.count]), re.IGNORECASE):
+                self.after_string()
+            elif re.search("^\s*for", str(self.string[self.count]), re.IGNORECASE):
+                self.after_string()
+            elif re.search("^\s*with", str(self.string[self.count]), re.IGNORECASE):
+                self.after_string()
+            elif re.search("^\s*do until", str(self.string[self.count]), re.IGNORECASE):
+                self.after_string()
+
+
+            elif re.search("^\s*loop", str(self.string[self.count]), re.IGNORECASE):
+                self.before_string()
+            elif re.search("^\s*end with", str(self.string[self.count]), re.IGNORECASE):
+                self.before_string()
+            elif re.search("^\s*end if", str(self.string[self.count]), re.IGNORECASE):
+                self.before_string()
+            elif re.search("^\s*next", str(self.string[self.count]), re.IGNORECASE):
+                self.before_string()
+
+            elif re.search("^\s*elseif.*then", str(self.string[self.count]), re.IGNORECASE):
+                self.mid_string()
+            elif re.search("^\s*else", str(self.string[self.count]), re.IGNORECASE):
+                self.mid_string()
+
+            else:
+                self.print_ln(self.string[self.count])
+            self.count += 1
 
 
 with open("scratch.html") as s:
-    ind = Indenter()
-    ind.main(s.readlines())
+    ind = Indenter(s.readlines())
+    ind.main()
