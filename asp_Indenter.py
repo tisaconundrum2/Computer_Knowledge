@@ -43,48 +43,51 @@ class Indenter:
         sys.stdout.write(" " * self.space + str(string))
         sys.stdout.flush()
 
-    def after_string(self):
+    def indent(self):
         self.print_ln(self.string[self.count])
         self.space += 4
 
-    def before_string(self):
+    def dedent(self):
         self.space -= 4
         self.print_ln(self.string[self.count])
 
-    def mid_string(self):
+    def dedent_indent(self):
         self.space -= 4
         self.print_ln(self.string[self.count])
-        self.count += 1
         self.space += 4
-        self.print_ln(self.string[self.count])
 
 
 
     def main(self):
         while self.count < len(self.string):
             if re.search("^\s*if.*then", str(self.string[self.count]), re.IGNORECASE):
-                self.after_string()
+                self.indent()
             elif re.search("^\s*for", str(self.string[self.count]), re.IGNORECASE):
-                self.after_string()
+                self.indent()
             elif re.search("^\s*with", str(self.string[self.count]), re.IGNORECASE):
-                self.after_string()
+                self.indent()
             elif re.search("^\s*do until", str(self.string[self.count]), re.IGNORECASE):
-                self.after_string()
+                self.indent()
+            elif re.search("^\s*Select Case", str(self.string[self.count]), re.IGNORECASE):
+                self.indent()
 
-
+            elif re.search("^\s*End Select", str(self.string[self.count]), re.IGNORECASE):
+                self.dedent()
             elif re.search("^\s*loop", str(self.string[self.count]), re.IGNORECASE):
-                self.before_string()
+                self.dedent()
             elif re.search("^\s*end with", str(self.string[self.count]), re.IGNORECASE):
-                self.before_string()
+                self.dedent()
             elif re.search("^\s*end if", str(self.string[self.count]), re.IGNORECASE):
-                self.before_string()
+                self.dedent()
             elif re.search("^\s*next", str(self.string[self.count]), re.IGNORECASE):
-                self.before_string()
+                self.dedent()
 
-            elif re.search("^\s*elseif.*then", str(self.string[self.count]), re.IGNORECASE):
-                self.mid_string()
+            elif re.search("^\s*Case", str(self.string[self.count]), re.IGNORECASE):
+                self.dedent_indent()
             elif re.search("^\s*else", str(self.string[self.count]), re.IGNORECASE):
-                self.mid_string()
+                self.dedent_indent()
+            elif re.search("^\s*elseif.*then", str(self.string[self.count]), re.IGNORECASE):
+                self.dedent_indent()
 
             else:
                 self.print_ln(self.string[self.count])
