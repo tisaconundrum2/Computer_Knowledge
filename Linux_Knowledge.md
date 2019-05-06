@@ -1,6 +1,21 @@
 # Linux_Knowledge
 Just some knowledge for reoccuring linux stuff 
 
+## Adding more usable Swap space
+
+    Make all swap off
+    sudo swapoff -a
+
+    Resize the swapfile
+    sudo dd if=/dev/zero of=/swapfile bs=1M count=1024
+
+    Make swapfile usable
+    sudo mkswap /swapfile
+
+    Make swapon again
+    sudo swapon /swapfile
+
+
 ## Getting out of TTY virtual console
 
 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F1</kbd> to <kbd>F6</kbd> are the virtual consoles provided by the `getty`/`agetty` programs. 
