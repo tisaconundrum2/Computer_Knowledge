@@ -3,16 +3,20 @@ Just some knowledge for reoccuring linux stuff
 
 ## Adding more usable Swap space
 
-    Make all swap off
+Make all swap off
+
     sudo swapoff -a
 
-    Resize the swapfile
+Resize the swapfile to 1 Gig `count` is size in MegaBytes
+
     sudo dd if=/dev/zero of=/swapfile bs=1M count=1024
 
-    Make swapfile usable
+Make swapfile usable
+    
     sudo mkswap /swapfile
 
-    Make swapon again
+Make swapon again
+
     sudo swapon /swapfile
 
 
