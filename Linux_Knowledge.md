@@ -182,3 +182,12 @@ to
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center; }
+
+# OCR and PDFs
+
+Utilize the below commands to get a decent quality of searchable text in a pdf (80%-90%)
+
+```
+sudo apt install ocrmypdf
+ocrmypdf input.pdf output.pdf
+```
