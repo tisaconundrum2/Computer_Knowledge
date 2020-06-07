@@ -1,4 +1,4 @@
-## Get One Note to screenshot with Windows + S Shortcut Key
+## Get One Note to screenshot with Windows + S Shortcut Key (Windows 10)
 
 Copy the following command and then paste it into the command line. Press Enter.
 
