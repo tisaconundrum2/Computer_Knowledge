@@ -7,13 +7,13 @@ elif [[ $answer = [nN] ]]; then
     sleep 5
 fi
 ```
-Can also do something like this
+## Can also do something like this
 
 ```
 if [[ $1 = "FLAG" || $1 = "flag" ]] # matches the given 2 combination
 ```
 
-Linux Bash Not Equal “-ne” , “!=” Operators Tutorial
+## Linux Bash Not Equal “-ne” , “!=” Operators Tutorial
 
 ```
 if [ "$name" != "ismail" ]; then
@@ -22,7 +22,7 @@ else
     echo "Both Strings are Equal."
 fi
 ```
-Check If Specified Number Is Not Equal
+## Check If Specified Number Is Not Equal
 
 ```
 age=18
