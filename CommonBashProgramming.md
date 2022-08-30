@@ -16,7 +16,11 @@ if [[ $1 = "FLAG" || $1 = "flag" ]] # matches the given 2 combination
 ## Linux Bash Not Equal “-ne” , “!=” Operators Tutorial
 
 ```
-if [ "$name" != "ismail" ]; then
+myname="ismail"
+
+yourname="john"
+ 
+if [ $myname != $yourname ]; then
     echo "Both Strings are NOT Equal."
 else
     echo "Both Strings are Equal."
