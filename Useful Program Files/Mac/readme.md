@@ -2,7 +2,6 @@
 # Here are a few ways I've made my Mac experience a little bit better.
 
 ## Programs
-Up above
 - **Dictate**: Listen to my audio and create a text file from it
 - **Flux**: Dim my screen and make it red at night
 - **Flycut**: Clipboard history
