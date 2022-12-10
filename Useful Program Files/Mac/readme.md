@@ -1,6 +1,19 @@
 
 # Here are a few ways I've made my Mac experience a little bit better.
 
+## Programs
+Up above
+- **Dictate**: Listen to my audio and create a text file from it
+- **Flux**: Dim my screen and make it red at night
+- **Flycut**: Clipboard history
+- **JumpCutter**: Cut out silence in videos (substitute this with Auto-editor, it's a little bit better)
+- **MacPass**: Keepass for Mac
+- **Meld**: An interactive diff application
+- **OpenShot**: A nice opensource video editor
+- **Spectacle**: Make your window experience a little snappier, see the `Spectacle settings` below
+- **TeamViewer**: Remote Computer App
+- **UnnaturalScrollWheels**: Make it so that the up and down for your mouse is inverse of your Mac TouchPad
+
 ## Switching your `Opt` and `Cmd` keys around
 ![image](https://user-images.githubusercontent.com/11879769/206865075-948e4a0d-0c2d-4520-9d1d-aaeed15908d7.png)
 
@@ -21,3 +34,6 @@ Make it such that the image is actually added to the clipboard instead of needle
 ## Shortcut key for Text to Speech
 This is changed by click the circled i icon next to `Speak selection`
 ![image](https://user-images.githubusercontent.com/11879769/206865497-04e96e93-5fb5-4965-9cba-781759788d4c.png)
+
+## Spectacle Settings
+![image](https://user-images.githubusercontent.com/11879769/206865839-f546a750-49d7-47d9-8dd1-e9c9e4583cee.png)
