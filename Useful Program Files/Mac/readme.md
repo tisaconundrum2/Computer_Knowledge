@@ -36,3 +36,13 @@ This is changed by click the circled i icon next to `Speak selection`
 
 ## Spectacle Settings
 ![image](https://user-images.githubusercontent.com/11879769/206865839-f546a750-49d7-47d9-8dd1-e9c9e4583cee.png)
+
+## Chrome: AutoScroll
+Make such that the middle mouse press allows you to scroll up and down
+![image](https://user-images.githubusercontent.com/11879769/206865971-1ecb58d3-0e99-4d29-b71f-0dbb189872cf.png)
+
+## Chrome: Shortkeys
+Change the default shortcut behaviors in Chrome
+![image](https://user-images.githubusercontent.com/11879769/206866011-e349ab46-57bf-428b-84e8-d03b25cf3614.png)
+![image](https://user-images.githubusercontent.com/11879769/206866314-f4ffcace-a41b-4766-9813-61d0468f194c.png)
+
