@@ -21,6 +21,7 @@
 
 ## Set the screen capture similar to a Windows
 Make it such that the image is actually added to the clipboard instead of needlessly added to the desktop as a file
+
 ![image](https://user-images.githubusercontent.com/11879769/206865251-a915d229-2f12-49ea-be67-2de24a132640.png)
 
 ## Open the Terminal in the Folder I'm currently in
@@ -32,6 +33,7 @@ Make it such that the image is actually added to the clipboard instead of needle
 
 ## Shortcut key for Text to Speech
 This is changed by click the circled i icon next to `Speak selection`
+
 ![image](https://user-images.githubusercontent.com/11879769/206865497-04e96e93-5fb5-4965-9cba-781759788d4c.png)
 
 ## Spectacle Settings
