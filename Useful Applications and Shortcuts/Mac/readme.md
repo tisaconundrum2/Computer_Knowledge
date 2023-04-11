@@ -44,6 +44,7 @@ Give back the ability to press and scroll
 
 ## Chrome: Shortkeys
 Change the default shortcut behaviors in Chrome
+
 ![image](https://user-images.githubusercontent.com/11879769/206866011-e349ab46-57bf-428b-84e8-d03b25cf3614.png)
 ![image](https://user-images.githubusercontent.com/11879769/206866314-f4ffcace-a41b-4766-9813-61d0468f194c.png)
 
