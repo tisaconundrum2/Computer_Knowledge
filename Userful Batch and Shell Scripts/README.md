@@ -5,7 +5,7 @@ Here you will find an amalgamation of several Scripts that I found useful or I'v
 ## Imataris Mmicus 6.23.bat
 
 This is an old batch script that I made back in 2007. I highly do not recommend running it on your system as it is very inefficient.
-The program utilizes Xcopy to copy a bunch of files into another directory. Nothing super fancy, but it was certainly fancy to me. The area where it is very inefficient is in the fact that it opens several programs to run a copy.
+The program utilizes Xcopy to copy a bunch of files into another directory. Nothing super fancy, but it was certainly fancy to me at the time. The area where it is very inefficient is in the fact that it opens several programs to run a copy.
 
 Here's a quick description made by chatGPT on why it sucks.
 
