@@ -26,7 +26,7 @@ True multiprocessing would involve breaking the task into parallelized chunks ma
 
 ## mac_convert.sh
 
-A simple multithreaded script that converts a bunch of MOV files to MP4 had a frame rate of 12.
+A simple multithreaded script that converts a bunch of MOV files to MP4 at a frame rate of 12.
 
 ## organizeFiles.bat
 
