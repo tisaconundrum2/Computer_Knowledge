@@ -28,6 +28,10 @@ True multiprocessing would involve breaking the task into parallelized chunks ma
 
 A simple multithreaded script that converts a bunch of MOV files to MP4 at a frame rate of 12.
 
+## win_convert.sh
+
+A simple multithreaded script that converts a bunch of MKV files to MP4
+
 ## organizeFiles.bat
 
 A simple batch script that will automatically organize all your files according to their extension.
