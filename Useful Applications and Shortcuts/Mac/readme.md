@@ -13,6 +13,9 @@
 - **TeamViewer**: Remote Computer App
 - **UnnaturalScrollWheels**: Make it so that the up and down for your mouse is inverse of your Mac TouchPad
 
+## Dictation
+<img width="477" alt="image" src="https://github.com/tisaconundrum2/Computer_Knowledge/assets/11879769/480e5987-1f62-4fc5-adb0-3fe0f59ab06c">
+
 ## Windows Tab
 <img width="680" alt="image" src="https://user-images.githubusercontent.com/11879769/235310843-7610e09d-0e91-4d34-8961-64f672226fea.png">
 
