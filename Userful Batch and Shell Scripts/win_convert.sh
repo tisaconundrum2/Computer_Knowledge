@@ -6,14 +6,10 @@ if ! command -v ffmpeg &> /dev/null; then
     exit 1
 fi
 
-# Create output directory
-output_directory="mp4_output"
-mkdir -p "$output_directory"
-
 # Convert MKV to MP4 function
 convert_to_mp4() {
     mkv_file="$1"
-    mp4_file="$output_directory/${mkv_file%.mkv}.mp4"
+    mp4_file="../${mkv_file%.mkv}.mp4"
 
     if [ ! -f "$mp4_file" ]; then
         ffmpeg -i "$mkv_file" -c:v libx264 -c:a aac -vf "fps=30" "$mp4_file"
@@ -23,14 +19,22 @@ convert_to_mp4() {
     fi
 }
 
-# Process MKV files in parallel
+# Process MKV files in batches of 5
+batch_size=3
+count=0
+
 for mkv_file in *.mkv; do
     if [ -f "$mkv_file" ]; then
         convert_to_mp4 "$mkv_file" &
+        ((count++))
+        if [ $count -eq $batch_size ]; then
+            wait
+            count=0
+        fi
     fi
 done
 
-# Wait for all background processes to finish
+# Wait for any remaining background processes to finish
 wait
 
 echo "Conversion complete."
