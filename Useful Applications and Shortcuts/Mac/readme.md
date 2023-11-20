@@ -13,6 +13,9 @@
 - **TeamViewer**: Remote Computer App
 - **UnnaturalScrollWheels**: Make it so that the up and down for your mouse is inverse of your Mac TouchPad
 
+## Turn off Show Desktop for VSCode purposes
+![image](https://github.com/tisaconundrum2/Computer_Knowledge/assets/11879769/f06f0e63-49f0-4843-9c07-c07460868519)
+
 ## Dictation
 <img width="477" alt="image" src="https://github.com/tisaconundrum2/Computer_Knowledge/assets/11879769/480e5987-1f62-4fc5-adb0-3fe0f59ab06c">
 
