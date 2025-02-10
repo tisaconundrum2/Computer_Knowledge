@@ -1,6 +1,13 @@
 # UsefulKnowledge
 Useful and knowledgeable things I've picked up
 
+# Reset a Git Repo to a Pristine State
+git clean `-fdx` `-f` is force, `d` cleans all files and directories and `x` includes all untracked files
+
+```
+git reset --hard; git clean -fdx
+```
+
 # While loop checking for Diffs
 
 ```
