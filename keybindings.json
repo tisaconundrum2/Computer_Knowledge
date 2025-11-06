@@ -1,0 +1,48 @@
+// My favorite keybindings
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "ctrl+shift+f9",
+        "command": "-o.showOutput"
+    },
+    {
+        "key": "ctrl+shift+f9",
+        "command": "-workbench.action.chat.previousFileTree",
+        "when": "chatIsEnabled && inChat"
+    },
+    {
+        "key": "ctrl+shift+f9",
+        "command": "workbench.debug.viewlet.action.removeAllBreakpoints"
+    },
+    {
+        "key": "alt+enter",
+        "command": "editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+.",
+        "command": "-editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+k g",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "github &\n"
+        },
+    },
+    {
+        "key": "ctrl+shift+alt+d",
+        "command": "workbench.view.extension.github-cweijan-mysql"
+    },
+    {
+        "key": "shift+alt+l",
+        "command": "copy-relative-path-and-line-numbers.both",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+l",
+        "command": "-copy-relative-path-and-line-numbers.both",
+        "when": "editorTextFocus"
+    }
+]
