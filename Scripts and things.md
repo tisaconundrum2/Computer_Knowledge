@@ -129,3 +129,22 @@ codecanyon.net
 4. Open CMD and type `java -version` if everything worked, you've successfully installed java
 <br>![](https://i.imgur.com/kSWBNZo.png)
 5. 
+
+
+# Copy to Clipboard Function
+```
+     function copyToClipboard(elementId) {
+         const inputField = document.getElementById(elementId);
+         inputField.focus();
+         inputField.select();
+         try {
+             const successful = document.execCommand('copy');
+             const msg = successful ? 'successful' : 'unsuccessful';
+             console.log('Copying text command was ' + msg);
+             alert('Copied to clipboard!');
+         } catch (err) {
+             console.error('Oops, unable to copy', err);
+             alert('Failed to copy text.');
+         }
+     }
+```
