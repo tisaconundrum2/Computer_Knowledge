@@ -1,80 +1,125 @@
 # Heroku
 
-```
- 1016  heroku login
- 1017  node --version
- 1018  npm --version
- 1019  git --version
- 1020  cd ..
- 1021  git clone https://github.com/heroku/node-js-getting-started.git
- 1022  cd node-js-getting-started
- 1023  heroku create
- 1024  git branch -all
- 1025  git branch --all
- 1026  git push heroku main
- 1027  heroku ps:scale web=1
- 1028  heroku open
- 1029  heroku logs --tail
- 1030  heroku logs --tail
- 1031  heroku logs --tail
- 1032  ls
- 1033  cat Procfile
- 1034  heroku ps
- 1035  heroku ps:scale web=0
- 1036  heroku open
- 1037  heroku ps:scale web=1
- 1038  npm install
- 1039  ls -al
- 1040  git status
- 1041  git add .
- 1042  git commit
- 1043  git branch
- 1044  git push heroku main
-```
+A cloud platform for building, deploying, and managing web applications. This document covers essential Heroku commands and workflows for Node.js applications.
 
-## Heroku Login
+## Prerequisites & Setup
 
-`heroku login` 
-to Login via the web
+Before deploying to Heroku, ensure you have:
+- Node.js installed (`node --version`)
+- npm installed (`npm --version`)
+- Git installed (`git --version`)
+- A Heroku account
 
-## Heroku Create
+### Authentication
 
-`heroku create` 
-to Create a new heroku repo instance
+`heroku login`
+- Opens a web browser for Heroku authentication
+- Required before you can create or manage Heroku applications
 
-## Scaling your App
+## Creating Your Application
 
-`heroku ps:scale web=n` 
-to scale to `n` number of instances of your application
+### Initial Setup
 
-## Heroku Open
+`heroku create`
+- Creates a new Heroku app with a randomly generated name
+- Adds a `heroku` remote to your Git repository
+- Generates a unique URL for your application
+
+### Deploying Your Code
+
+`git push heroku main`
+- Deploys your code from the `main` branch to Heroku
+- Heroku automatically detects your Node.js application type
+- Installs dependencies and starts your app
+
+### Deploy Non-Main Branch
+
+`git push -f heroku HEAD:main`
+- Pushes your current branch to Heroku's `main` branch
+- Useful when working on feature branches but have a single Heroku app
+- The `-f` flag forces the update on the remote
+
+## Process Management
+
+### Viewing Processes
+
+`heroku ps`
+- Shows all running processes on your Heroku app
+- Displays worker types, status, and resource usage
+
+### Scaling Your App
+
+`heroku ps:scale web=n`
+- Scales your web process to `n` number of dynos (containers)
+- Example: `heroku ps:scale web=2` runs 2 instances of your app
+- Example: `heroku ps:scale web=0` stops the app (useful for pausing free tier apps)
+
+## Viewing Your Application
 
 `heroku open`
-to open your instance on the web
+- Opens your deployed application in your default web browser
+- Uses the URL assigned to your Heroku app
 
-## Procfile
+## Monitoring & Debugging
 
-Use a Procfile, a text file in the root directory of your application, to explicitly declare what command should be executed to start your app.
+### View Logs
 
-`web: npm start`
-Example line that could be in the Procfile specifying how to start your app
+`heroku logs --tail`
+- Streams application logs in real-time
+- Shows errors, warnings, and general output from your application
+- Press Ctrl+C to stop streaming logs
 
-## Run Locally
+### Full Log History
 
-`herko local web`
-Open http://localhost:5000 with your web browser. You should see your app running locally.
+`heroku logs`
+- Displays the full log history (without streaming)
+- Useful for debugging past issues
 
-## Heroku Local Variables
+## Application Configuration
+
+### Procfile
+
+The `Procfile` is a text file in your application's root directory that tells Heroku how to start your app.
+
+**Example Procfile:**
+```
+web: npm start
+```
+
+This instructs Heroku to run `npm start` to launch your application.
+
+**Common Procfile Types:**
+- `web`: HTTP server (required, receives traffic)
+- `worker`: Background processes
+- `clock`: Scheduled tasks
+
+### Environment Variables
 
 `heroku config`
-will output your environment variables.
+- Displays all environment variables for your app
+- Shows config variables like database URLs, API keys, etc.
 
-To set them you can
-* Change the contents of the `.env` file
-* `heroku config:set TIMES=2
+#### Setting Variables
 
-## Push to Heroku Dev
+**Option 1: Using the CLI**
+```
+heroku config:set VARIABLE_NAME=value
+heroku config:set TIMES=2
+```
 
-This is a way to get your current branch to Main, even if you aren't actually on the Main branch locally.
-This is great if you're running separate branches, but a single Heroku App
-`git push -f heroku HEAD:main`
+**Option 2: Using .env File**
+- Create a `.env` file in your project root
+- Add your variables: `VARIABLE_NAME=value`
+- Heroku reads this file during deployment (with proper setup)
+
+## Local Development
+
+### Running Your App Locally
+
+`heroku local web`
+- Runs your application locally using the same configuration as Heroku
+- Respects your `Procfile` and environment variables
+- Open http://localhost:5000 in your web browser
+- Press Ctrl+C to stop the server
+
+**Note:** Ensure all dependencies are installed with `npm install` before running locally.
