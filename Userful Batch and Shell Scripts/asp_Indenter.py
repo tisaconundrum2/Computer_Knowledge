@@ -30,70 +30,82 @@ END IF
 
 """
 
-import re, sys
+import re
+import sys
 
 
 class Indenter:
-    def __init__(self, string):
-        self.space = 0
-        self.count = 0
-        self.string = string
+    def __init__(self, lines):
+        self.indent_level = 0
+        self.line_index = 0
+        self.lines = lines
 
-    def print_ln(self, string):
-        sys.stdout.write(" " * self.space + str(string))
+    def write_line(self, line):
+        indentation = "    " * self.indent_level
+        sys.stdout.write(indentation + line)
         sys.stdout.flush()
 
-    def indent(self):
-        self.print_ln(self.string[self.count])
-        self.space += 4
+    def increase_indent(self):
+        self.write_line(self.lines[self.line_index])
+        self.indent_level += 1
 
-    def dedent(self):
-        self.space -= 4
-        self.print_ln(self.string[self.count])
+    def decrease_indent(self):
+        self.indent_level -= 1
+        self.write_line(self.lines[self.line_index])
 
-    def dedent_indent(self):
-        self.space -= 4
-        self.print_ln(self.string[self.count])
-        self.space += 4
+    def decrease_then_increase_indent(self):
+        self.indent_level -= 1
+        self.write_line(self.lines[self.line_index])
+        self.indent_level += 1
 
+    def process(self):
+        indent_keywords = [
+            r"^\s*if\s+.*\s+then",
+            r"^\s*for\b",
+            r"^\s*with\b",
+            r"^\s*do\s+until",
+            r"^\s*select\s+case",
+        ]
 
+        dedent_keywords = [
+            r"^\s*end\s+select",
+            r"^\s*loop\b",
+            r"^\s*end\s+with",
+            r"^\s*end\s+if",
+            r"^\s*next\b",
+        ]
 
-    def main(self):
-        while self.count < len(self.string):
-            if re.search("^\s*if.*then", str(self.string[self.count]), re.IGNORECASE):
-                self.indent()
-            elif re.search("^\s*for", str(self.string[self.count]), re.IGNORECASE):
-                self.indent()
-            elif re.search("^\s*with", str(self.string[self.count]), re.IGNORECASE):
-                self.indent()
-            elif re.search("^\s*do until", str(self.string[self.count]), re.IGNORECASE):
-                self.indent()
-            elif re.search("^\s*Select Case", str(self.string[self.count]), re.IGNORECASE):
-                self.indent()
+        dedent_indent_keywords = [
+            r"^\s*case\b",
+            r"^\s*else\b",
+            r"^\s*elseif\s+.*\s+then",
+        ]
 
-            elif re.search("^\s*End Select", str(self.string[self.count]), re.IGNORECASE):
-                self.dedent()
-            elif re.search("^\s*loop", str(self.string[self.count]), re.IGNORECASE):
-                self.dedent()
-            elif re.search("^\s*end with", str(self.string[self.count]), re.IGNORECASE):
-                self.dedent()
-            elif re.search("^\s*end if", str(self.string[self.count]), re.IGNORECASE):
-                self.dedent()
-            elif re.search("^\s*next", str(self.string[self.count]), re.IGNORECASE):
-                self.dedent()
+        while self.line_index < len(self.lines):
+            line = self.lines[self.line_index]
 
-            elif re.search("^\s*Case", str(self.string[self.count]), re.IGNORECASE):
-                self.dedent_indent()
-            elif re.search("^\s*else", str(self.string[self.count]), re.IGNORECASE):
-                self.dedent_indent()
-            elif re.search("^\s*elseif.*then", str(self.string[self.count]), re.IGNORECASE):
-                self.dedent_indent()
-
+            if any(
+              re.search(pattern, line, re.IGNORECASE)
+              for pattern in indent_keywords
+            ):
+                self.increase_indent()
+            elif any(
+              re.search(pattern, line, re.IGNORECASE)
+              for pattern in dedent_keywords
+            ):
+                self.decrease_indent()
+            elif any(
+              re.search(pattern, line, re.IGNORECASE)
+              for pattern in dedent_indent_keywords
+            ):
+                self.decrease_then_increase_indent()
             else:
-                self.print_ln(self.string[self.count])
-            self.count += 1
+                self.write_line(line)
+
+            self.line_index += 1
 
 
-with open("scratch.html") as s:
-    ind = Indenter(s.readlines())
-    ind.main()
+if __name__ == "__main__":
+    with open("scratch.html") as file:
+        indenter = Indenter(file.readlines())
+        indenter.process()
