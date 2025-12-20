@@ -1,5 +1,11 @@
 # All the coding things I've learned.
 
+## Auth Individual Setup
+
+```
+$ dotnet new mvc -n "Project.Name" -o "Project.Name" --auth Individual
+```
+
 ## Clear your cache damnit!
 
 If you're getting errors saying a version of your project doesn't exist. Have you considered clearing your cache?
