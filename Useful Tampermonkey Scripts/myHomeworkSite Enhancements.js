@@ -142,7 +142,7 @@
       tomorrowLink.href = "#";
       tomorrowLink.className = "tomorrow-btn";
       tomorrowLink.innerHTML =
-        '<span class="icon g" title="Move to Tomorrow" style="filter: hue-rotate(180deg); font-weight:bold; font-size: 1.2em; display: inline-block; transform: translateY(2px);">➔</span>';
+        '<span class="icon g" title="Move to Tomorrow" style="filter: hue-rotate(180deg); font-weight:bold; font-size: 1.2em; display: inline-block; transform: translateY(-1px);">➔</span>';
 
       tomorrowLink.addEventListener("click", (e) => {
         e.preventDefault();
