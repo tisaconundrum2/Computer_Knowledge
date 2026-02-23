@@ -538,7 +538,7 @@
   if (storedDate) {
     const urlParams = new URLSearchParams(window.location.search);
     const currentDate = urlParams.get("dt");
-    
+
     // Only redirect if we're not already on the stored date
     if (currentDate !== storedDate) {
       localStorage.removeItem(CURRENT_DATE_STORAGE_KEY);
