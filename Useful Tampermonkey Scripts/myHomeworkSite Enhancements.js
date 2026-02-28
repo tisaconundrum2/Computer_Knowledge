@@ -102,36 +102,73 @@
     }
   }
 
-  async function saveHomeworkDate(hwId, dueDate) {
-    const response = await fetch(`https://myhomeworkapp.com/homework/${hwId}/edit`);
-    if (!response.ok) {
-      throw new Error(`Failed loading edit form for homework ${hwId}`);
+  function isRateLimited(response, htmlText) {
+    if (response.status === 429) return true;
+    if (htmlText && htmlText.includes("Rate Limited")) return true;
+    return false;
+  }
+
+  async function saveHomeworkDate(hwId, dueDate, { maxRetries = 4, baseDelayMs = 5000 } = {}) {
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+      const response = await fetch(`https://myhomeworkapp.com/homework/${hwId}/edit`);
+      const htmlText = await response.text();
+
+      if (isRateLimited(response, htmlText)) {
+        if (attempt < maxRetries) {
+          const waitMs = baseDelayMs * Math.pow(2, attempt);
+          console.warn(`Rate limited (attempt ${attempt + 1}/${maxRetries + 1}). Retrying in ${waitMs / 1000}s...`);
+          await delay(waitMs);
+          continue;
+        }
+        throw new Error("RATE_LIMITED");
+      }
+
+      if (!response.ok) {
+        throw new Error(`Failed loading edit form for homework ${hwId}`);
+      }
+
+      const doc = new DOMParser().parseFromString(htmlText, "text/html");
+      const form = doc.querySelector("form");
+      if (!form) {
+        throw new Error("Edit form not found");
+      }
+
+      const formData = new URLSearchParams(new FormData(form));
+      formData.set("due_date", dueDate);
+      formData.set("save", "Save");
+
+      const saveResponse = await fetch(`https://myhomeworkapp.com/homework/${hwId}/edit`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "x-csrftoken": getCookie("csrftoken"),
+          "x-requested-with": "XMLHttpRequest",
+        },
+        body: formData.toString(),
+      });
+
+      const saveText = await saveResponse.text();
+
+      if (isRateLimited(saveResponse, saveText)) {
+        if (attempt < maxRetries) {
+          const waitMs = baseDelayMs * Math.pow(2, attempt);
+          console.warn(`Rate limited on save (attempt ${attempt + 1}/${maxRetries + 1}). Retrying in ${waitMs / 1000}s...`);
+          await delay(waitMs);
+          continue;
+        }
+        throw new Error("RATE_LIMITED");
+      }
+
+      if (!saveResponse.ok) {
+        throw new Error(`Save failed for homework ${hwId}`);
+      }
+
+      return; // success
     }
+  }
 
-    const htmlText = await response.text();
-    const doc = new DOMParser().parseFromString(htmlText, "text/html");
-    const form = doc.querySelector("form");
-    if (!form) {
-      throw new Error("Edit form not found");
-    }
-
-    const formData = new URLSearchParams(new FormData(form));
-    formData.set("due_date", dueDate);
-    formData.set("save", "Save");
-
-    const saveResponse = await fetch(`https://myhomeworkapp.com/homework/${hwId}/edit`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-        "x-csrftoken": getCookie("csrftoken"),
-        "x-requested-with": "XMLHttpRequest",
-      },
-      body: formData.toString(),
-    });
-
-    if (!saveResponse.ok) {
-      throw new Error(`Save failed for homework ${hwId}`);
-    }
+  function delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
   async function moveTaskByDays(hwId, dateFromUrl, anchorElement, daysToAdd) {
@@ -205,6 +242,11 @@
         } catch (err) {
           console.error(`Failed postponing homework ${hwId}:`, err);
           failed += 1;
+        }
+
+        // Small delay between requests to avoid triggering rate limiting
+        if (updated + failed < deleteLinks.length) {
+          await delay(500);
         }
       }
 
