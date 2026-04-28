@@ -59,7 +59,7 @@ Change the default shortcut behaviors in Chrome
 ![image](https://user-images.githubusercontent.com/11879769/206866011-e349ab46-57bf-428b-84e8-d03b25cf3614.png)
 ![image](https://user-images.githubusercontent.com/11879769/206866314-f4ffcace-a41b-4766-9813-61d0468f194c.png)
 
-## Rectable App
+## Rectangle App
 Move and resize windows in macOS using keyboard shortcuts or snap areas
 
 <img width="852" height="418" alt="image" src="https://github.com/user-attachments/assets/67017752-f06d-4cfd-9aa9-a08ce51a0203" />
